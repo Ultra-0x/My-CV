@@ -588,19 +588,146 @@
       opacity: 1;
       transform: none;
     }
-  </style>
-</head>
-<body>
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta name="description" content="Professional CV / portfolio">
+      <title>Professional CV — Your Name</title>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+      <style>
+        :root{--bg1:#0f1724;--bg2:#0b1220;--glass:rgba(255,255,255,0.06);--accent:#7c3aed;--muted:rgba(255,255,255,0.7)}
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial;color:whitesmoke;background:linear-gradient(180deg,var(--bg1),var(--bg2));-webkit-font-smoothing:antialiased}
+        .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:48px}
+        .card{width:100%;max-width:1100px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:16px;padding:28px;backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(2,6,23,0.6);display:grid;grid-template-columns:360px 1fr;gap:28px}
+        header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+        .nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+        .profile{display:flex;flex-direction:column;align-items:center;text-align:center}
+        .avatar{width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-family:Playfair Display,serif;font-size:48px;font-weight:700;color:white;box-shadow:0 8px 30px rgba(124,58,237,0.2)}
+        h1{font-family:Playfair Display,serif;margin:0;font-size:34px}
+        h2{margin:6px 0 12px;color:var(--muted);font-weight:600}
+        .summary{color:rgba(255,255,255,0.9);line-height:1.5}
+        .actions{margin-top:14px}
+        .btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+        .btn-primary{background:linear-gradient(90deg,var(--accent),#06b6d4);color:white}
+        .btn-ghost{border:1px solid rgba(255,255,255,0.08);color:var(--muted);background:transparent;margin-left:10px}
+        .meta{width:100%;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+        .meta .item{display:flex;justify-content:space-between;padding:10px 12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
+        .main{padding:6px 4px}
+        .section{margin-bottom:18px}
+        .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+        .project{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+        .skills{display:flex;flex-wrap:wrap;gap:8px}
+        .chip{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-weight:600}
+        .testimonials{position:relative;padding:18px;border-radius:12px;background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))}
+        .testimonial{min-height:60px}
+        footer{display:flex;justify-content:space-between;align-items:center;margin-top:6px;color:var(--muted);font-size:13px}
+        @media (max-width:900px){.card{grid-template-columns:1fr;padding:18px}.avatar{width:140px;height:140px}}
+      </style>
+    </head>
+    <body>
+      <div class="wrap">
+        <main class="card" role="main">
+          <div class="left">
+            <header>
+              <div>
+                <strong style="letter-spacing:0.6px">Your Name</strong>
+                <div style="font-size:12px;color:var(--muted)">Senior Product Designer • Frontend Engineer</div>
+              </div>
+              <nav class="nav" aria-label="Main navigation">
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+              </nav>
+            </header>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">AO_</div>
-  <ul class="nav-links">
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#strengths">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+            <div class="profile">
+              <div class="avatar">YN</div>
+              <h1>Your Name</h1>
+              <h2>Designing delightful digital experiences</h2>
+              <p class="summary">I build premium web products and polished interfaces for startups and established teams. I focus on product clarity, performance and delightful interactions.</p>
+              <div class="actions">
+                <a class="btn btn-primary" href="#contact">Let's talk</a>
+                <a class="btn btn-ghost" href="/cv.pdf" download>Download CV</a>
+              </div>
+
+              <div class="meta">
+                <div class="item"><div>Location</div><div>City, Country</div></div>
+                <div class="item"><div>Availability</div><div>Open for opportunities</div></div>
+                <div class="item"><div>Experience</div><div>8+ years</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="main">
+            <section id="projects" class="section">
+              <h3 style="margin:0 0 10px">Featured projects</h3>
+              <div class="grid">
+                <article class="project">
+                  <strong>Project Alpha</strong>
+                  <p style="margin:8px 0 0;color:var(--muted)">A performance-focused web app for e-commerce conversion.</p>
+                </article>
+                <article class="project">
+                  <strong>Project Beta</strong>
+                  <p style="margin:8px 0 0;color:var(--muted)">Design system and component library used across mobile and web.</p>
+                </article>
+              </div>
+            </section>
+
+            <section id="skills" class="section">
+              <h3 style="margin:0 0 10px">Skills & tools</h3>
+              <div class="skills">
+                <span class="chip">React</span>
+                <span class="chip">Next.js</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">Figma</span>
+                <span class="chip">Accessibility</span>
+                <span class="chip">Performance</span>
+              </div>
+            </section>
+
+            <section class="section">
+              <h3 style="margin:0 0 10px">Testimonials</h3>
+              <div class="testimonials" id="testimonials">
+                <div class="testimonial" id="testimonial-text">“Transforms fuzzy ideas into beautiful, usable products.” — CEO, Acme Co.</div>
+              </div>
+            </section>
+
+            <section id="contact" class="section">
+              <h3 style="margin:0 0 10px">Contact</h3>
+              <p style="color:var(--muted)">Interested in working together? Email me at <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a> or use the contact button.</p>
+            </section>
+
+            <footer>
+              <div>© <span id="year"></span> Your Name</div>
+              <div style="color:var(--muted)">Built with care • Premium CV</div>
+            </footer>
+          </div>
+        </main>
+      </div>
+
+      <script>
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Simple testimonials rotation
+        const testimonials = [
+          '“Transforms fuzzy ideas into beautiful, usable products.” — CEO, Acme Co.',
+          '“A reliable partner who delivers elegant UI and fast performance.” — CTO, StartupX',
+          '“Exceptional attention to detail and product thinking.” — PM, RetailBrand'
+        ];
+        let ti=0;
+        setInterval(()=>{
+          ti=(ti+1)%testimonials.length;
+          const el=document.getElementById('testimonial-text');
+          el.style.opacity=0;setTimeout(()=>{el.textContent=testimonials[ti];el.style.opacity=1},300);
+        },4500);
+      </script>
+    </body>
+  </html>
 </nav>
 
 <!-- HERO -->
