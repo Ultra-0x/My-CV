@@ -1,131 +1,218 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ridwan Abayomi Odunukan — Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Ridwan Abayomi Odunukan — Software Developer</title>
+
+  <meta
+    name="description"
+    content="Ridwan Abayomi Odunukan — Software Developer and Full-Stack Developer building modern web applications, APIs, backend systems and digital products."
+  />
+
+  <meta name="author" content="Ridwan Abayomi Odunukan" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
     :root {
-      --navy:     #0A0F1E;
-      --slate:    #111827;
-      --card:     #141C2E;
-      --border:   #1E2D47;
-      --cyan:     #00D4FF;
-      --cyan-dim: rgba(0,212,255,0.12);
-      --cyan-glow:rgba(0,212,255,0.35);
-      --white:    #E8EDF5;
-      --gray:     #6B7A99;
-      --gray-lt:  #9AAABF;
+      --bg: #05080d;
+      --bg-soft: #080d14;
+      --panel: rgba(10, 17, 27, 0.82);
+      --panel-strong: #0b121c;
+      --border: rgba(148, 163, 184, 0.14);
+      --border-hover: rgba(103, 232, 249, 0.34);
+
+      --text: #edf7fa;
+      --muted: #8ea1ad;
+      --muted-2: #637583;
+
+      --cyan: #67e8f9;
+      --cyan-soft: rgba(103, 232, 249, 0.1);
+      --cyan-glow: rgba(103, 232, 249, 0.18);
+
+      --green: #6ee7b7;
+      --purple: #a78bfa;
+
+      --max: 1180px;
+      --radius: 22px;
+
+      --font-display: "Space Grotesk", sans-serif;
+      --font-body: "Inter", sans-serif;
+      --font-mono: "DM Mono", monospace;
     }
 
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      background: var(--navy);
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% 5%, rgba(103, 232, 249, 0.08), transparent 28%),
+        radial-gradient(circle at 10% 40%, rgba(167, 139, 250, 0.055), transparent 25%),
+        var(--bg);
+      font-family: var(--font-body);
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* ── GRID BACKGROUND ── */
     body::before {
-      content: '';
+      content: "";
       position: fixed;
       inset: 0;
-      background-image:
-        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
-      background-size: 48px 48px;
       pointer-events: none;
-      z-index: 0;
+      z-index: -1;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
     }
 
-    /* ── NAV ── */
-    nav {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .shell {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
+    .nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 48px;
-      background: rgba(10,15,30,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+      background: rgba(5, 8, 13, 0.76);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
 
-    .nav-logo {
-      font-family: 'Space Grotesk', sans-serif;
+    .nav-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-family: var(--font-display);
       font-weight: 700;
-      font-size: 17px;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(103, 232, 249, 0.35);
+      border-radius: 10px;
       color: var(--cyan);
-      letter-spacing: -0.02em;
+      background: rgba(103, 232, 249, 0.07);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      box-shadow: 0 0 25px rgba(103, 232, 249, 0.08);
     }
 
     .nav-links {
       display: flex;
-      gap: 32px;
-      list-style: none;
+      align-items: center;
+      gap: 28px;
     }
 
     .nav-links a {
-      color: var(--gray);
-      text-decoration: none;
+      color: var(--muted);
       font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: color 0.2s;
+      transition: color 0.25s ease;
     }
 
-    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
-    /* ── HERO ── */
+    .nav-contact {
+      color: var(--cyan) !important;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
     .hero {
-      position: relative;
-      z-index: 1;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 120px 48px 80px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .hero-eyebrow {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: var(--cyan);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-      display: flex;
+      display: grid;
       align-items: center;
-      gap: 10px;
+      padding: 150px 0 90px;
     }
 
-    .hero-eyebrow::before {
-      content: '';
-      width: 32px;
-      height: 1px;
-      background: var(--cyan);
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 22px;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 14px rgba(110, 231, 183, 0.7);
     }
 
     .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(48px, 8vw, 88px);
+      max-width: 850px;
+      font-family: var(--font-display);
+      font-size: clamp(3.4rem, 7vw, 6.7rem);
+      line-height: 0.94;
+      letter-spacing: -0.065em;
       font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.0;
-      margin-bottom: 28px;
     }
 
     .hero h1 span {
@@ -133,706 +220,1663 @@
       color: var(--cyan);
     }
 
-    .hero-desc {
-      max-width: 560px;
-      color: var(--gray-lt);
-      font-size: 16px;
-      line-height: 1.75;
-      margin-bottom: 44px;
+    .hero-description {
+      max-width: 700px;
+      margin-top: 28px;
+      color: #a9bac3;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .hero-description strong {
+      color: var(--text);
+      font-weight: 600;
     }
 
     .hero-badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 44px;
+      gap: 9px;
+      margin-top: 28px;
     }
 
     .badge {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      padding: 6px 14px;
+      padding: 8px 12px;
       border: 1px solid var(--border);
-      border-radius: 4px;
-      color: var(--gray-lt);
-      background: var(--card);
-      letter-spacing: 0.04em;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.025);
+      color: #9eafb8;
+      font-family: var(--font-mono);
+      font-size: 11px;
     }
 
-    .badge.accent {
-      border-color: var(--cyan);
-      color: var(--cyan);
-      background: var(--cyan-dim);
-    }
-
-    .hero-cta {
+    .hero-actions {
       display: flex;
-      gap: 16px;
       flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
     }
 
-    .btn {
+    .button {
+      min-height: 46px;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 13px 28px;
-      border-radius: 6px;
-      font-size: 14px;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 18px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 13px;
       font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
-      border: none;
-      font-family: 'Inter', sans-serif;
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
-    .btn-primary {
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-hover);
+    }
+
+    .button-primary {
+      color: #031015;
       background: var(--cyan);
-      color: var(--navy);
-    }
-
-    .btn-primary:hover {
-      box-shadow: 0 0 24px var(--cyan-glow);
-      transform: translateY(-1px);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--white);
-      border: 1px solid var(--border);
-    }
-
-    .btn-ghost:hover {
       border-color: var(--cyan);
-      color: var(--cyan);
+      box-shadow: 0 10px 30px rgba(103, 232, 249, 0.12);
     }
 
-    /* ── TERMINAL CARD ── */
-    .terminal {
-      position: absolute;
-      right: 48px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 320px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px var(--border);
+    .button-primary:hover {
+      background: #9af2ff;
+      border-color: #9af2ff;
     }
 
-    .terminal-bar {
+    .button-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    /* =========================
+       PROFILE PHOTO
+    ========================== */
+
+    .profile-area {
       display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 12px 16px;
-      background: var(--slate);
-      border-bottom: 1px solid var(--border);
+      justify-content: flex-end;
     }
 
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dot-r { background: #FF5F57; }
-    .dot-y { background: #FEBC2E; }
-    .dot-g { background: #28C840; }
-
-    .terminal-title {
-      flex: 1;
-      text-align: center;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--gray);
-    }
-
-    .terminal-body {
-      padding: 20px 18px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      line-height: 1.8;
-      min-height: 220px;
-    }
-
-    .t-line { color: var(--gray-lt); }
-    .t-prompt { color: var(--cyan); }
-    .t-output { color: #7FBA00; }
-    .t-comment { color: var(--gray); }
-    .cursor {
-      display: inline-block;
-      width: 8px;
-      height: 14px;
-      background: var(--cyan);
-      vertical-align: middle;
-      animation: blink 1s step-end infinite;
-    }
-
-    @keyframes blink { 50% { opacity: 0; } }
-
-    /* ── SECTIONS ── */
-    .section {
+    .profile-frame {
       position: relative;
-      z-index: 1;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 80px 48px;
+      width: min(390px, 100%);
+      aspect-ratio: 0.86;
+    }
+
+    .profile-frame::before {
+      content: "";
+      position: absolute;
+      inset: 18px -18px -18px 18px;
+      border: 1px solid rgba(103, 232, 249, 0.16);
+      border-radius: 28px;
+    }
+
+    .profile-frame::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      right: -30px;
+      top: -30px;
+      border-radius: 50%;
+      background: rgba(103, 232, 249, 0.08);
+      filter: blur(35px);
+      pointer-events: none;
+    }
+
+    .profile-photo {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid rgba(103, 232, 249, 0.25);
+      border-radius: 28px;
+      background: #0c141d;
+      box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.45),
+        0 0 50px rgba(103, 232, 249, 0.06);
+      filter: saturate(0.92);
+    }
+
+    .profile-tag {
+      position: absolute;
+      z-index: 3;
+      left: -24px;
+      bottom: 28px;
+      padding: 12px 15px;
+      border: 1px solid rgba(103, 232, 249, 0.2);
+      border-radius: 13px;
+      background: rgba(7, 13, 20, 0.9);
+      backdrop-filter: blur(12px);
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    }
+
+    /* =========================
+       SECTIONS
+    ========================== */
+
+    section {
+      padding: 105px 0;
+      border-top: 1px solid rgba(148, 163, 184, 0.07);
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+      margin-bottom: 42px;
     }
 
     .section-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
       color: var(--cyan);
-      letter-spacing: 0.14em;
+      font-family: var(--font-mono);
+      font-size: 11px;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    .section-heading h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .section-intro {
+      max-width: 510px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       TERMINAL
+    ========================== */
+
+    .terminal {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+    }
+
+    .terminal-head {
+      height: 46px;
       display: flex;
       align-items: center;
+      gap: 7px;
+      padding: 0 17px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.018);
+    }
+
+    .terminal-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #41515c;
+    }
+
+    .terminal-title {
+      margin-left: 8px;
+      color: var(--muted-2);
+      font-family: var(--font-mono);
+      font-size: 10px;
+    }
+
+    .terminal-body {
+      padding: 27px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    .terminal-line {
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
     }
 
-    .section-label::after {
-      content: '';
-      flex: 1;
-      max-width: 60px;
-      height: 1px;
-      background: var(--border);
+    .terminal-prompt {
+      color: var(--cyan);
     }
 
-    .section-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 48px;
+    .terminal-key {
+      color: #8296a3;
     }
 
-    hr.divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0;
+    .terminal-value {
+      color: #e1edf0;
     }
 
-    /* ── SKILLS GRID ── */
+    /* =========================
+       SKILLS
+    ========================== */
+
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 16px;
     }
 
     .skill-card {
-      background: var(--card);
+      min-height: 280px;
+      padding: 27px;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 28px;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      border-radius: var(--radius);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.028),
+        rgba(255, 255, 255, 0.008)
+      );
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
     }
 
     .skill-card:hover {
-      border-color: var(--cyan);
-      box-shadow: 0 0 20px var(--cyan-dim);
+      transform: translateY(-5px);
+      border-color: var(--border-hover);
+      background: linear-gradient(
+        145deg,
+        rgba(103, 232, 249, 0.05),
+        rgba(255, 255, 255, 0.01)
+      );
     }
 
-    .skill-icon {
-      font-size: 24px;
-      margin-bottom: 14px;
+    .skill-number {
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 11px;
     }
 
     .skill-card h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 14px;
-      color: var(--white);
+      margin-top: 23px;
+      font-family: var(--font-display);
+      font-size: 21px;
+      letter-spacing: -0.03em;
+    }
+
+    .skill-card p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
     }
 
     .skill-list {
-      list-style: none;
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 7px;
+      margin-top: 21px;
     }
 
-    .skill-list li {
-      font-size: 13px;
-      color: var(--gray-lt);
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
+    .skill-item {
+      padding: 6px 9px;
+      border: 1px solid rgba(148, 163, 184, 0.11);
+      border-radius: 7px;
+      color: #a9b8c0;
+      background: rgba(255, 255, 255, 0.018);
+      font-size: 10px;
     }
 
-    .skill-list li::before {
-      content: '›';
-      color: var(--cyan);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
+    /* =========================
+       PROJECTS
+    ========================== */
 
-    /* ── PROJECTS ── */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
     .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 28px;
+      position: relative;
+      min-height: 330px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      transition: border-color 0.2s, transform 0.2s;
+      padding: 29px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 90% 0%, rgba(103, 232, 249, 0.055), transparent 30%),
+        var(--panel);
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
     .project-card:hover {
-      border-color: var(--cyan);
-      transform: translateY(-3px);
+      transform: translateY(-6px);
+      border-color: var(--border-hover);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.22);
     }
 
-    .project-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .project-index {
       color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+
+    .project-type {
+      color: var(--muted-2);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
     .project-card h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 17px;
-      font-weight: 600;
-      line-height: 1.3;
+      margin-top: 32px;
+      font-family: var(--font-display);
+      font-size: 26px;
+      letter-spacing: -0.04em;
     }
 
     .project-card p {
+      margin-top: 12px;
+      color: var(--muted);
       font-size: 13px;
-      color: var(--gray-lt);
-      line-height: 1.65;
-      flex: 1;
+      line-height: 1.8;
     }
 
-    .project-tags {
+    .project-tech {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 7px;
+      margin-top: 20px;
     }
 
-    .tag {
-      font-family: 'JetBrains Mono', monospace;
+    .tech {
+      color: #8fa4af;
+      font-family: var(--font-mono);
       font-size: 10px;
-      padding: 4px 10px;
-      background: var(--cyan-dim);
-      border: 1px solid rgba(0,212,255,0.2);
-      border-radius: 3px;
+    }
+
+    .tech::before {
+      content: "#";
       color: var(--cyan);
     }
 
-    /* ── STRENGTHS ── */
-    .strengths-grid {
+    .project-actions {
+      margin-top: auto;
+      padding-top: 28px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      transition: gap 0.2s ease;
+    }
+
+    .project-link:hover {
+      gap: 13px;
+    }
+
+    .project-link span {
+      font-size: 15px;
+    }
+
+    /* =========================
+       ABOUT / STRENGTHS
+    ========================== */
+
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
-    .strength-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      background: var(--card);
+    .about-card {
+      padding: 30px;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 22px;
+      border-radius: var(--radius);
+      background: var(--panel);
     }
 
-    .strength-icon {
+    .about-card h3 {
+      font-family: var(--font-display);
       font-size: 22px;
-      flex-shrink: 0;
-      margin-top: 2px;
+      letter-spacing: -0.03em;
     }
 
-    .strength-item p {
+    .about-card p {
+      margin-top: 15px;
+      color: var(--muted);
       font-size: 14px;
-      color: var(--gray-lt);
+      line-height: 1.85;
+    }
+
+    .strength-list {
+      display: grid;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .strength {
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+    }
+
+    .strength-marker {
+      flex: 0 0 auto;
+      width: 8px;
+      height: 8px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(103, 232, 249, 0.4);
+    }
+
+    .strength strong {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .strength span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
       line-height: 1.6;
     }
 
-    /* ── CONTACT ── */
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact-box {
+      position: relative;
+      overflow: hidden;
+      padding: 50px;
+      border: 1px solid rgba(103, 232, 249, 0.17);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(103, 232, 249, 0.09), transparent 30%),
+        radial-gradient(circle at 10% 100%, rgba(167, 139, 250, 0.06), transparent 30%),
+        var(--panel);
+    }
+
+    .contact-box h2 {
+      max-width: 720px;
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .contact-box > p {
+      max-width: 670px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: start;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 32px;
     }
 
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .contact-row {
+    .contact-item {
+      min-height: 62px;
       display: flex;
       align-items: center;
-      gap: 14px;
-      background: var(--card);
+      gap: 13px;
+      padding: 13px 15px;
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px 20px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.018);
+      transition:
+        border-color 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .contact-item:hover {
+      border-color: var(--border-hover);
+      background: rgba(103, 232, 249, 0.035);
     }
 
     .contact-icon {
-      font-size: 18px;
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--cyan-dim);
-      border-radius: 6px;
-      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 9px;
+      color: var(--cyan);
+      background: var(--cyan-soft);
+      font-family: var(--font-mono);
+      font-size: 11px;
     }
 
-    .contact-row span {
-      font-size: 13px;
-      color: var(--gray-lt);
-    }
-
-    .contact-row strong {
+    .contact-item small {
       display: block;
-      font-size: 14px;
-      color: var(--white);
-      font-weight: 500;
-    }
-
-    .contact-availability {
-      background: var(--card);
-      border: 1px solid var(--cyan);
-      border-radius: 10px;
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .avail-dot {
-      width: 8px; height: 8px;
-      background: #28C840;
-      border-radius: 50%;
-      display: inline-block;
-      margin-right: 8px;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    .avail-status {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: #28C840;
+      color: var(--muted-2);
+      font-family: var(--font-mono);
+      font-size: 9px;
+      text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
-    .contact-availability h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
-    .contact-availability p {
-      font-size: 14px;
-      color: var(--gray-lt);
-      line-height: 1.65;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 32px 48px;
-      border-top: 1px solid var(--border);
-      font-family: 'JetBrains Mono', monospace;
+    .contact-item strong {
+      display: block;
+      margin-top: 2px;
+      color: var(--text);
       font-size: 12px;
-      color: var(--gray);
+      font-weight: 500;
+      word-break: break-word;
     }
 
-    footer span { color: var(--cyan); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      nav { padding: 16px 24px; }
-      .nav-links { gap: 20px; }
-      .hero { padding: 100px 24px 60px; }
-      .terminal { display: none; }
-      .section { padding: 60px 24px; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .strengths-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
     }
 
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .hero h1 { font-size: 40px; }
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      padding: 32px 0 40px;
+      border-top: 1px solid rgba(148, 163, 184, 0.07);
     }
 
-    /* scroll-fade-in */
-    .fade-in {
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-copy {
+      color: var(--muted-2);
+      font-family: var(--font-mono);
+      font-size: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 11px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan);
+    }
+
+    /* =========================
+       SCROLL REVEAL
+    ========================== */
+
+    .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(20px);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
     }
-    .fade-in.visible {
+
+    .reveal.visible {
       opacity: 1;
-      transform: none;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 980px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
+
+      .profile-area {
+        justify-content: flex-start;
+      }
+
+      .profile-frame {
+        width: min(360px, 90%);
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 125px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      section {
+        padding: 78px 0;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-intro {
+        margin-top: 17px;
+      }
+
+      .skills-grid,
+      .projects-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-card,
+      .project-card {
+        min-height: auto;
+      }
+
+      .contact-box {
+        padding: 30px 22px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .profile-tag {
+        left: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions,
+      .contact-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .profile-frame {
+        width: 88%;
+      }
+
+      .terminal-body {
+        padding: 20px;
+        font-size: 11px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">AO_</div>
-  <ul class="nav-links">
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#strengths">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-eyebrow">Available to Work Effectively</div>
-  <h1>Ridwan<span>Abayomi</span>Odunukan</span></h1>
-  <p class="hero-desc">
-    Software Developer focused on Cybersecurity &amp; Full-Stack Development — building
-    scalable, secure, and efficient digital systems that solve real-world problems.
-  </p>
-  <div class="hero-badges">
-    <div class="badge accent">Cybersecurity</div>
-    <div class="badge accent">Full-Stack Dev</div>
-    <div class="badge">Django / Node.js</div>
-    <div class="badge">REST APIs</div>
-    <div class="badge">Security Tools</div>
-    <div class="badge">Cloud Deployment</div>
-  </div>
-  <div class="hero-cta">
-    <a href="#contact" class="btn btn-primary">↗ Get in Touch</a>
-    <a href="#projects" class="btn btn-ghost">View Projects</a>
-  </div>
+  <header class="nav">
+    <div class="shell nav-inner">
 
-  <!-- Terminal Card -->
-  <div class="terminal">
-    <div class="terminal-bar">
-      <div class="dot dot-r"></div>
-      <div class="dot dot-y"></div>
-      <div class="dot dot-g"></div>
-      <div class="terminal-title">abayomi@dev ~ </div>
-    </div>
-    <div class="terminal-body">
-      <div class="t-line"><span class="t-prompt">$ </span>whoami</div>
-      <div class="t-line t-output">Ridwan Abayomi Odunukan</div>
-      <div class="t-line" style="margin-top:8px"><span class="t-prompt">$ </span>cat role.txt</div>
-      <div class="t-line t-output">Software Developer</div>
-      <div class="t-line t-output">Cybersecurity + Full-Stack</div>
-      <div class="t-line" style="margin-top:8px"><span class="t-prompt">$ </span>status --available</div>
-      <div class="t-line t-output" style="color:#28C840">✔ Open to opportunities</div>
-      <div class="t-line" style="margin-top:8px"><span class="t-prompt">$ </span>ping location</div>
-      <div class="t-line t-output">Nigeria (UTC+1)</div>
-      <div class="t-line" style="margin-top:8px"><span class="t-prompt">$ </span><span class="cursor"></span></div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider"/>
-
-<!-- SKILLS -->
-<section class="section" id="skills">
-  <div class="section-label">Expertise</div>
-  <h2 class="section-title">Core Skills</h2>
-  <div class="skills-grid">
-
-    <div class="skill-card fade-in">
-      <div class="skill-icon">🔐</div>
-      <h3>Cybersecurity</h3>
-      <ul class="skill-list">
-        <li>Web Application Security</li>
-        <li>Vulnerability Assessment &amp; Analysis</li>
-        <li>Security Tool Development</li>
-        <li>Network Security Fundamentals</li>
-        <li>Ethical Hacking Concepts</li>
-        <li>Secure Coding Practices</li>
-        <li>System Hardening &amp; Risk Reduction</li>
-      </ul>
-    </div>
-
-    <div class="skill-card fade-in">
-      <div class="skill-icon">⚡</div>
-      <h3>Full-Stack Development</h3>
-      <ul class="skill-list">
-        <li>Frontend: HTML, CSS, JavaScript</li>
-        <li>Backend: Node.js / Django / PHP</li>
-        <li>RESTful API Design &amp; Integration</li>
-        <li>Auth &amp; Authorization Systems</li>
-        <li>Database Design — SQL &amp; NoSQL</li>
-        <li>Full Web App Architecture</li>
-      </ul>
-    </div>
-
-    <div class="skill-card fade-in">
-      <div class="skill-icon">🛠</div>
-      <h3>Software &amp; Tools</h3>
-      <ul class="skill-list">
-        <li>Git &amp; GitHub Version Control</li>
-        <li>Cloud Deployment (Render, VPS)</li>
-        <li>Debugging &amp; Performance Tuning</li>
-        <li>Cross-platform App Concepts</li>
-        <li>Automation Scripting</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<hr class="divider"/>
-
-<!-- PROJECTS -->
-<section class="section" id="projects">
-  <div class="section-label">Work</div>
-  <h2 class="section-title">Projects &amp; Experience</h2>
-  <div class="projects-grid">
-
-    <div class="project-card fade-in">
-      <div class="project-num">01 / SECURITY</div>
-      <h3>Cybersecurity Tools Suite</h3>
-      <p>Custom tools focused on security testing, automation, and system analysis — identifying vulnerabilities and improving system security posture for real-world environments.</p>
-      <div class="project-tags">
-        <span class="tag">Security Testing</span>
-        <span class="tag">Automation</span>
-        <span class="tag">Diagnostics</span>
-      </div>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-num">02 / FULLSTACK</div>
-      <h3>Full-Stack Web Applications</h3>
-      <p>Secure, dynamic web apps with custom authentication systems, REST API integration, and responsive UIs backed by robust database logic and backend architecture.</p>
-      <div class="project-tags">
-        <span class="tag">Django</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">REST API</span>
-        <span class="tag">SQL</span>
-      </div>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-num">03 / SYSTEMS</div>
-      <h3>Software &amp; Automation Systems</h3>
-      <p>Multiple utility and automation applications built with a focus on performance, scalability, and secure architecture — spanning web tools, data pipelines, and cross-platform utilities.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">Cloud Deploy</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<hr class="divider"/>
-
-<!-- STRENGTHS -->
-<section class="section" id="strengths">
-  <div class="section-label">About Me</div>
-  <h2 class="section-title">Professional Strengths</h2>
-  <div class="strengths-grid">
-    <div class="strength-item fade-in">
-      <div class="strength-icon">🧠</div>
-      <p>Strong analytical and problem-solving skills applied across security and development challenges.</p>
-    </div>
-    <div class="strength-item fade-in">
-      <div class="strength-icon">🏗</div>
-      <p>Ability to build secure, scalable systems from architecture to deployment with security-first thinking.</p>
-    </div>
-    <div class="strength-item fade-in">
-      <div class="strength-icon">⚡</div>
-      <p>Fast adaptation to new technologies, frameworks, and environments — always learning.</p>
-    </div>
-    <div class="strength-item fade-in">
-      <div class="strength-icon">🌐</div>
-      <p>Effective independent and team collaboration, with strong written and verbal communication in English.</p>
-    </div>
-  </div>
-</section>
-
-<hr class="divider"/>
-
-<!-- CONTACT -->
-<section class="section" id="contact">
-  <div class="section-label">Reach Out</div>
-  <h2 class="section-title">Contact</h2>
-  <div class="contact-grid">
-    <div class="contact-info">
-      <div class="contact-row fade-in">
-        <div class="contact-icon">✉️</div>
-        <div>
-          <span>Email</span>
-          <strong>Odunukanabayomi1111@gmail.com</strong>
-        </div>
-      </div>
-      <div class="contact-row fade-in">
-        <div class="contact-icon">📞</div>
-        <div>
-          <span>Phone</span>
-          <strong>090 6587 9327</strong>
-        </div>
-      </div>
-      <div class="contact-row fade-in">
-        <div class="contact-icon">💬</div>
-        <div>
-          <span>WhatsApp</span>
-          <strong>0810 684 6575</strong>
-        </div>
-      </div>
-      <div class="contact-row fade-in">
-        <div class="contact-icon">📍</div>
-        <div>
-          <span>Location</span>
-          <strong>Nigeria</strong>
-        </div>
-      </div>
-    </div>
-
-    <div class="contact-availability fade-in">
-      <div class="avail-status"><span class="avail-dot"></span>AVAILABLE FOR WORK</div>
-      <h3>Let's build something secure &amp; scalable.</h3>
-      <p>Also open to remote roles, freelance projects, and long-term collaborations — especially in cybersecurity, backend systems, and full-stack development.</p>
-      <a href="mailto:Odunukanabayomi1111@gmail.com" class="btn btn-primary" style="margin-top:8px; align-self:flex-start;">
-        ✉ Send an Email
+      <a href="#top" class="brand">
+        <span class="brand-mark">RAO</span>
+        <span>Ridwan Abayomi</span>
       </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-contact">Contact</a>
+      </nav>
+
     </div>
-  </div>
-</section>
+  </header>
 
-<footer>
-  <span>Ridwan Abayomi Odunukan</span> — Software Developer · Cybersecurity &amp; Full-Stack · Nigeria
-</footer>
 
-<script>
-  // Scroll fade-in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
+  <main id="top">
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+      <div class="shell hero-grid">
+
+        <div class="hero-content reveal">
+
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Available for Remote Work
+          </div>
+
+          <h1>
+            Ridwan
+            <span>Abayomi</span>
+            Odunukan
+          </h1>
+
+          <p class="hero-description">
+            <strong>Software Developer & Full-Stack Developer</strong>
+            building modern web applications, backend systems, APIs and
+            practical digital products from idea to deployment.
+          </p>
+
+          <div class="hero-badges">
+            <span class="badge">Full-Stack Development</span>
+            <span class="badge">React / TypeScript</span>
+            <span class="badge">Node.js / Express</span>
+            <span class="badge">Django / PHP</span>
+            <span class="badge">REST APIs</span>
+            <span class="badge">PostgreSQL / SQL</span>
+            <span class="badge">Git / GitHub</span>
+            <span class="badge">Cloud Deployment</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">
+              Get in Touch →
+            </a>
+
+            <a class="button button-secondary" href="#projects">
+              View Projects
+            </a>
+
+            <a
+              class="button button-secondary"
+              href="https://github.com/Ultra-0x"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+          </div>
+
+        </div>
+
+
+        <div class="profile-area reveal">
+
+          <div class="profile-frame">
+
+            <img
+              class="profile-photo"
+              src="images/AbayomiOdunukan.jpeg"
+              alt="Ridwan Abayomi Odunukan"
+            />
+
+            <div class="profile-tag">
+              &gt; software_developer
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         PROFILE / TERMINAL
+    ========================== -->
+
+    <section>
+      <div class="shell">
+
+        <div class="section-heading reveal">
+          <div>
+            <div class="section-label">01 / Profile</div>
+            <h2>Building with purpose.</h2>
+          </div>
+
+          <p class="section-intro">
+            I enjoy turning ideas into functional software — from the
+            interface users interact with to the APIs, database and
+            deployment infrastructure behind it.
+          </p>
+        </div>
+
+
+        <div class="terminal reveal">
+
+          <div class="terminal-head">
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-title">ridwan@developer:~</span>
+          </div>
+
+          <div class="terminal-body">
+
+            <div class="terminal-line">
+              <span class="terminal-prompt">$</span>
+              <span class="terminal-key">whoami</span>
+            </div>
+
+            <div class="terminal-line">
+              <span class="terminal-key">name:</span>
+              <span class="terminal-value">Ridwan Abayomi Odunukan</span>
+            </div>
+
+            <div class="terminal-line">
+              <span class="terminal-key">role:</span>
+              <span class="terminal-value">Software Developer / Full-Stack Developer</span>
+            </div>
+
+            <div class="terminal-line">
+              <span class="terminal-key">focus:</span>
+              <span class="terminal-value">Web Applications · APIs · Backend Systems</span>
+            </div>
+
+            <div class="terminal-line">
+              <span class="terminal-key">location:</span>
+              <span class="terminal-value">Nigeria · UTC+1</span>
+            </div>
+
+            <div class="terminal-line">
+              <span class="terminal-key">availability:</span>
+              <span class="terminal-value">Remote Work · Freelance · Software Roles</span>
+            </div>
+
+            <div class="terminal-line">
+              <span class="terminal-key">approach:</span>
+              <span class="terminal-value">Build · Test · Deploy · Improve</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section id="skills">
+      <div class="shell">
+
+        <div class="section-heading reveal">
+          <div>
+            <div class="section-label">02 / Technical Skills</div>
+            <h2>What I build with.</h2>
+          </div>
+
+          <p class="section-intro">
+            A practical development stack covering frontend interfaces,
+            backend services, databases, APIs and deployment.
+          </p>
+        </div>
+
+
+        <div class="skills-grid">
+
+          <article class="skill-card reveal">
+            <div class="skill-number">01 — FRONTEND</div>
+
+            <h3>Interfaces & Web Apps</h3>
+
+            <p>
+              Building responsive, structured interfaces with attention to
+              usability, visual hierarchy and real-world interactions.
+            </p>
+
+            <div class="skill-list">
+              <span class="skill-item">HTML</span>
+              <span class="skill-item">CSS</span>
+              <span class="skill-item">JavaScript</span>
+              <span class="skill-item">React</span>
+              <span class="skill-item">TypeScript</span>
+              <span class="skill-item">Responsive Design</span>
+            </div>
+          </article>
+
+
+          <article class="skill-card reveal">
+            <div class="skill-number">02 — BACKEND</div>
+
+            <h3>APIs & Server Systems</h3>
+
+            <p>
+              Developing backend services, REST APIs, authentication systems
+              and application logic that connect interfaces to data.
+            </p>
+
+            <div class="skill-list">
+              <span class="skill-item">Node.js</span>
+              <span class="skill-item">Express</span>
+              <span class="skill-item">Django</span>
+              <span class="skill-item">PHP</span>
+              <span class="skill-item">REST APIs</span>
+              <span class="skill-item">Authentication</span>
+            </div>
+          </article>
+
+
+          <article class="skill-card reveal">
+            <div class="skill-number">03 — DATA & DEPLOYMENT</div>
+
+            <h3>Databases & Delivery</h3>
+
+            <p>
+              Working with application data, version control and deployment
+              environments to move software from development into production.
+            </p>
+
+            <div class="skill-list">
+              <span class="skill-item">PostgreSQL</span>
+              <span class="skill-item">SQL</span>
+              <span class="skill-item">NoSQL</span>
+              <span class="skill-item">Git</span>
+              <span class="skill-item">GitHub</span>
+              <span class="skill-item">Render</span>
+              <span class="skill-item">VPS</span>
+            </div>
+          </article>
+
+
+          <article class="skill-card reveal">
+            <div class="skill-number">04 — SOFTWARE ENGINEERING</div>
+
+            <h3>Application Development</h3>
+
+            <p>
+              Structuring applications into maintainable components and
+              services while debugging issues and improving functionality.
+            </p>
+
+            <div class="skill-list">
+              <span class="skill-item">Architecture</span>
+              <span class="skill-item">Debugging</span>
+              <span class="skill-item">API Integration</span>
+              <span class="skill-item">Validation</span>
+              <span class="skill-item">Authorization</span>
+              <span class="skill-item">Deployment</span>
+            </div>
+          </article>
+
+
+          <article class="skill-card reveal">
+            <div class="skill-number">05 — SECURITY</div>
+
+            <h3>Security-Aware Development</h3>
+
+            <p>
+              Applying security-conscious thinking to web applications,
+              authentication, backend systems and software development.
+            </p>
+
+            <div class="skill-list">
+              <span class="skill-item">Secure Coding</span>
+              <span class="skill-item">Web Security</span>
+              <span class="skill-item">Vulnerability Analysis</span>
+              <span class="skill-item">System Hardening</span>
+              <span class="skill-item">Security Fundamentals</span>
+            </div>
+          </article>
+
+
+          <article class="skill-card reveal">
+            <div class="skill-number">06 — WORKFLOW</div>
+
+            <h3>Build & Collaboration</h3>
+
+            <p>
+              Comfortable taking a project from an initial idea through
+              implementation, testing, deployment and continued improvement.
+            </p>
+
+            <div class="skill-list">
+              <span class="skill-item">Git Workflow</span>
+              <span class="skill-item">Problem Solving</span>
+              <span class="skill-item">Research</span>
+              <span class="skill-item">Documentation</span>
+              <span class="skill-item">Independent Work</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects">
+      <div class="shell">
+
+        <div class="section-heading reveal">
+          <div>
+            <div class="section-label">03 / Selected Work</div>
+            <h2>Projects I've built.</h2>
+          </div>
+
+          <p class="section-intro">
+            A selection of live and production-oriented projects demonstrating
+            frontend development, backend engineering, APIs, databases and
+            deployment.
+          </p>
+        </div>
+
+
+        <div class="projects-grid">
+
+
+          <!-- UltraTempMail -->
+
+          <article class="project-card reveal">
+
+            <div class="project-top">
+              <span class="project-index">PROJECT / 01</span>
+              <span class="project-type">Web Platform</span>
+            </div>
+
+            <h3>UltraTempMail</h3>
+
+            <p>
+              A temporary email platform built around disposable mailbox
+              functionality, backend services and production deployment.
+            </p>
+
+            <div class="project-tech">
+              <span class="tech">Node.js</span>
+              <span class="tech">Express</span>
+              <span class="tech">SMTP</span>
+              <span class="tech">Nginx</span>
+              <span class="tech">VPS</span>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="project-link"
+                href="https://ultratempmail.com.ng"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit project <span>↗</span>
+              </a>
+            </div>
+
+          </article>
+
+
+          <!-- Ultra Aurora -->
+
+          <article class="project-card reveal">
+
+            <div class="project-top">
+              <span class="project-index">PROJECT / 02</span>
+              <span class="project-type">Digital Gallery</span>
+            </div>
+
+            <h3>Ultra Aurora Contemporary</h3>
+
+            <p>
+              A contemporary digital art platform designed around artists,
+              exhibitions, artworks, reservations and an immersive gallery
+              experience.
+            </p>
+
+            <div class="project-tech">
+              <span class="tech">React</span>
+              <span class="tech">TypeScript</span>
+              <span class="tech">Express</span>
+              <span class="tech">PostgreSQL</span>
+              <span class="tech">REST API</span>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="project-link"
+                href="https://ultra-aurora-h5u4.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit project <span>↗</span>
+              </a>
+            </div>
+
+          </article>
+
+
+          <!-- Ultra Story -->
+
+          <article class="project-card reveal">
+
+            <div class="project-top">
+              <span class="project-index">PROJECT / 03</span>
+              <span class="project-type">Story Platform</span>
+            </div>
+
+            <h3>Ultra Story</h3>
+
+            <p>
+              An episodic storytelling platform with story discovery,
+              reader accounts, episode access, subscriptions and an
+              administration system.
+            </p>
+
+            <div class="project-tech">
+              <span class="tech">React</span>
+              <span class="tech">TypeScript</span>
+              <span class="tech">Express</span>
+              <span class="tech">PostgreSQL</span>
+              <span class="tech">Paystack</span>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="project-link"
+                href="https://ultra-story.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit project <span>↗</span>
+              </a>
+            </div>
+
+          </article>
+
+
+          <!-- SweetEstate -->
+
+          <article class="project-card reveal">
+
+            <div class="project-top">
+              <span class="project-index">PROJECT / 04</span>
+              <span class="project-type">Real Estate</span>
+            </div>
+
+            <h3>SweetEstate</h3>
+
+            <p>
+              A real-estate web application focused on presenting properties
+              through a modern interface and connecting users with available
+              property information.
+            </p>
+
+            <div class="project-tech">
+              <span class="tech">Web Development</span>
+              <span class="tech">Responsive UI</span>
+              <span class="tech">Property Platform</span>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="project-link"
+                href="http://sweet-estate-lyart.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit project <span>↗</span>
+              </a>
+            </div>
+
+          </article>
+
+
+          <!-- SweetEstate Admin -->
+
+          <article class="project-card reveal">
+
+            <div class="project-top">
+              <span class="project-index">PROJECT / 05</span>
+              <span class="project-type">Admin System</span>
+            </div>
+
+            <h3>SweetEstate Admin</h3>
+
+            <p>
+              An administrative interface supporting the management side of
+              the SweetEstate platform and its operational content.
+            </p>
+
+            <div class="project-tech">
+              <span class="tech">Admin UI</span>
+              <span class="tech">Dashboard</span>
+              <span class="tech">Web Application</span>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="project-link"
+                href="https://sweet-estate-admin.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open admin system <span>↗</span>
+              </a>
+            </div>
+
+          </article>
+
+
+          <!-- More Work -->
+
+          <article class="project-card reveal">
+
+            <div class="project-top">
+              <span class="project-index">PROJECT / 06</span>
+              <span class="project-type">More Work</span>
+            </div>
+
+            <h3>More in Development</h3>
+
+            <p>
+              Additional software projects and experiments continue to evolve
+              across web applications, backend systems, digital products and
+              developer tooling.
+            </p>
+
+            <div class="project-tech">
+              <span class="tech">Web Apps</span>
+              <span class="tech">APIs</span>
+              <span class="tech">Backend</span>
+              <span class="tech">Deployment</span>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="project-link"
+                href="https://github.com/Ultra-0x"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Explore GitHub <span>↗</span>
+              </a>
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about">
+      <div class="shell">
+
+        <div class="section-heading reveal">
+          <div>
+            <div class="section-label">04 / About</div>
+            <h2>How I approach software.</h2>
+          </div>
+
+          <p class="section-intro">
+            I focus on creating software that is useful, maintainable and
+            capable of moving beyond a simple demo.
+          </p>
+        </div>
+
+
+        <div class="about-grid">
+
+          <article class="about-card reveal">
+
+            <h3>Development mindset</h3>
+
+            <p>
+              I enjoy working across the different layers of a web application:
+              designing interfaces, connecting APIs, working with databases,
+              handling application logic and getting projects deployed.
+            </p>
+
+            <p>
+              I learn by building. When I encounter a technology, problem or
+              architecture I do not fully understand, I research, test,
+              implement and improve until I can make it work in a real project.
+            </p>
+
+          </article>
+
+
+          <article class="about-card reveal">
+
+            <h3>Professional strengths</h3>
+
+            <div class="strength-list">
+
+              <div class="strength">
+                <span class="strength-marker"></span>
+                <div>
+                  <strong>Problem solving</strong>
+                  <span>
+                    Breaking technical problems into smaller, workable parts.
+                  </span>
+                </div>
+              </div>
+
+              <div class="strength">
+                <span class="strength-marker"></span>
+                <div>
+                  <strong>Full-stack thinking</strong>
+                  <span>
+                    Understanding how frontend, backend, database and deployment
+                    connect together.
+                  </span>
+                </div>
+              </div>
+
+              <div class="strength">
+                <span class="strength-marker"></span>
+                <div>
+                  <strong>Adaptability</strong>
+                  <span>
+                    Comfortable learning unfamiliar tools when a project
+                    requires them.
+                  </span>
+                </div>
+              </div>
+
+              <div class="strength">
+                <span class="strength-marker"></span>
+                <div>
+                  <strong>Independent execution</strong>
+                  <span>
+                    Able to take ownership of a project and work through
+                    implementation and debugging.
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+      <div class="shell">
+
+        <div class="contact-box reveal">
+
+          <div class="section-label">05 / Contact</div>
+
+          <h2>
+            Let's build something useful.
+          </h2>
+
+          <p>
+            I am available for software development roles, remote work,
+            freelance projects and opportunities where I can contribute to
+            building practical digital products.
+          </p>
+
+
+          <div class="contact-grid">
+
+            <a
+              class="contact-item"
+              href="mailto:Odunukanabayomi1111@gmail.com"
+            >
+              <span class="contact-icon">@</span>
+
+              <span>
+                <small>Email</small>
+                <strong>Odunukanabayomi1111@gmail.com</strong>
+              </span>
+            </a>
+
+
+            <a
+              class="contact-item"
+              href="tel:+2349065879327"
+            >
+              <span class="contact-icon">TEL</span>
+
+              <span>
+                <small>Phone</small>
+                <strong>090 6587 9327</strong>
+              </span>
+            </a>
+
+
+            <a
+              class="contact-item"
+              href="https://wa.me/2348106846575"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="contact-icon">WA</span>
+
+              <span>
+                <small>WhatsApp</small>
+                <strong>0810 684 6575</strong>
+              </span>
+            </a>
+
+
+            <a
+              class="contact-item"
+              href="https://www.linkedin.com/in/odunukan-abayomi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="contact-icon">IN</span>
+
+              <span>
+                <small>LinkedIn</small>
+                <strong>linkedin.com/in/odunukan-abayomi</strong>
+              </span>
+            </a>
+
+
+            <a
+              class="contact-item"
+              href="https://github.com/Ultra-0x"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="contact-icon">GH</span>
+
+              <span>
+                <small>GitHub</small>
+                <strong>github.com/Ultra-0x</strong>
+              </span>
+            </a>
+
+
+            <a
+              class="contact-item"
+              href="https://my-cv-5ach.onrender.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="contact-icon">CV</span>
+
+              <span>
+                <small>Portfolio / CV</small>
+                <strong>my-cv-5ach.onrender.com</strong>
+              </span>
+            </a>
+
+          </div>
+
+
+          <div class="contact-actions">
+
+            <a
+              class="button button-primary"
+              href="mailto:Odunukanabayomi1111@gmail.com"
+            >
+              Email Me →
+            </a>
+
+            <a
+              class="button button-secondary"
+              href="https://www.linkedin.com/in/odunukan-abayomi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn ↗
+            </a>
+
+            <a
+              class="button button-secondary"
+              href="https://github.com/Ultra-0x"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+    <div class="shell footer-inner">
+
+      <div class="footer-copy">
+        © 2026 Ridwan Abayomi Odunukan — Software Developer · Nigeria
+      </div>
+
+      <div class="footer-links">
+        <a
+          href="https://github.com/Ultra-0x"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/odunukan-abayomi"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+
+        <a href="#top">
+          Back to top ↑
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.08
       }
-    });
-  }, { threshold: 0.1 });
+    );
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
 
 </body>
 </html>
+```
